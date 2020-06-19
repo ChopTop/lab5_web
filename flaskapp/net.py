@@ -46,5 +46,5 @@ def getresult(image_box):
   decode = decode_predictions(out_net, top=1)
   return decode
 
-fcount, fimage = read_image_files(1,'./static')
-decode = getresult(fimage)
+# fcount, fimage = read_image_files(1,'./static')
+# decode = getresult(fimage)
