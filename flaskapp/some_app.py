@@ -58,7 +58,7 @@ def net():
     fcount, fimage = neuronet.read_image_files(10,'./static')
     decode = neuronet.getresult(fimage)
     for elem in decode:
-    neurodic[elem[0][1]] = elem[0][2]
+        neurodic[elem[0][1]] = elem[0][2]
     form.upload.data.save(filename)
   return render_template('net.html',form=form,image_name=filename,neurodic=neurodic)
 
