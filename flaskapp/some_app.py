@@ -1,6 +1,22 @@
-from flask import render_template
-@app.route("/data_to")
+print("Hello world")
+from flask_bootstrap import Bootstrap
+from flask import Flask
 
+app = Flask(__name__)
+bootstrap = Bootstrap(app)
+SECRET_KEY = 'secret'
+app.config['SECRET_KEY'] = SECRET_KEY
+
+from flask_wtf.csrf import CSRFProtect
+csrf = CSRFProtect(app)
+
+@app.route("/")
+def hello():
+    return " <html><head></head> <body> Hello World! </body></html>"
+
+from flask import render_template
+
+@app.route("/data_to")
 def data_to():
   some_pars = {'user':'Ivan','color':'red'}
   some_str = 'Hello my dear friends!'
@@ -33,7 +49,6 @@ import os
 import net as neuronet
 
 @app.route("/net",methods=['GET', 'POST'])
-
 def net():
   form = NetForm()
   filename=None
@@ -55,7 +70,6 @@ from io import BytesIO
 import json
 
 @app.route("/apinet",methods=['GET', 'POST'])
-
 def apinet():
   if request.mimetype == 'application/json':
     data = request.get_json()
@@ -74,7 +88,6 @@ def apinet():
 import lxml.etree as ET
 
 @app.route("/apixml",methods=['GET', 'POST'])
-
 def apixml():
   dom = ET.parse("./static/xml/file.xml")
   xslt = ET.parse("./static/xml/file.xslt")
