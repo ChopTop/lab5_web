@@ -1,6 +1,7 @@
 import os
 from io import BytesIO
 import base64
+import requests
 
 img_data = None
 path = os.path.join('./static','image0008.png')
