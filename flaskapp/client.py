@@ -1,7 +1,14 @@
+import requests
+r = requests.get('http://localhost:5000/net')
+print(r.status_code)
+print(r.text)
+r = requests.get('http://localhost:5000/data_to')
+print(r.status_code)
+print(r.text)
+
 import os
 from io import BytesIO
 import base64
-import requests
 
 img_data = None
 path = os.path.join('./static','image0008.png')
